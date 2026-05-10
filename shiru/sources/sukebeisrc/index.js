@@ -57,7 +57,7 @@ export default new (class SukebeiSrc extends AbstractSource {
       seeders: Number(item.Seeders || 0),
       leechers: Number(item.Leechers || 0),
       downloads: Number(item.Downloads || 0),
-      size: 0,
+      size: parseSize(item.Size),
       date: new Date(item.DateUploaded),
       accuracy: "medium",
       type: "alt",
