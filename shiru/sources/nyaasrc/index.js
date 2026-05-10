@@ -6,7 +6,7 @@ import AbstractSource from "../abstract.js";
  */
 
 export default new (class Nyaa extends AbstractSource {
-  base = "https://localhost:8888/api/nyaasi/";
+  base = "http://localhost:8888/api/nyaasi/";
 
   /**
    * @param {TorrentQuery} options
