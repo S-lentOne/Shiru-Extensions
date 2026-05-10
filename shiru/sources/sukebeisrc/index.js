@@ -4,7 +4,26 @@ import AbstractSource from "../abstract.js";
  * @typedef {import('../index.d.ts').TorrentQuery} TorrentQuery
  * @typedef {import('../index.d.ts').TorrentResult} TorrentResult
  */
+function parseSize(sizeStr) {
+  if (!sizeStr) return 0;
 
+  const match = sizeStr.match(/^([\d.]+)\s*(B|KB|MB|GB|TB)$/i);
+
+  if (!match) return 0;
+
+  const value = parseFloat(match[1]);
+  const unit = match[2].toUpperCase();
+
+  const multipliers = {
+    B: 1,
+    KB: 1024,
+    MB: 1024 ** 2,
+    GB: 1024 ** 3,
+    TB: 1024 ** 4,
+  };
+
+  return Math.round(value * multipliers[unit]);
+}
 export default new (class SukebeiSrc extends AbstractSource {
   base = "http://localhost:8888/api/sukebei/";
 
