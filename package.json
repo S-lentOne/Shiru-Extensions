@@ -1,0 +1,12 @@
+{
+  "name": "shiru-extensions",
+  "version": "0.0.1",
+  "description": "Just some extensions for Shiru. Nyaa and Sukebei included to be specific, might add more later.",
+  "main": "shiru/index.json",
+  "scripts": {
+    "generate": "node generate_indexes.js"
+  },
+  "author": "S-lentOne",
+  "license": "GPL-3.0",
+  "type": "module"
+}
