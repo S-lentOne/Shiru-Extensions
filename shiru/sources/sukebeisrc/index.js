@@ -72,12 +72,17 @@ export default new (class SukebeiSrc extends AbstractSource {
     return data.map((item) => ({
       title: item.Name,
       link: item.Magnet,
-      hash: item.Magnet?.match(/btih:([A-Fa-f0-9]+)/)?.[1] || "",
+
+      hash: item.Magnet?.match(/btih:([^&]+)/)?.[1] || "",
+
       seeders: Number(item.Seeders || 0),
       leechers: Number(item.Leechers || 0),
       downloads: Number(item.Downloads || 0),
+
       size: parseSize(item.Size),
+
       date: new Date(item.DateUploaded),
+
       accuracy: "medium",
       type: "alt",
     }));
